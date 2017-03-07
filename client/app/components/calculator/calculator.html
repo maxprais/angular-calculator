@@ -3,7 +3,7 @@
     <h1>Welcome to the {{ $ctrl.name }} App!</h1>
   </div>
   <div class="calculator">
-    <div class="result">{{ $ctrl.currentInputValue }}</div>
+    <div class="result">{{ $ctrl.CalculationService.currentInputValue }}</div>
     <div class="buttons">
       <span ng-click="$ctrl.clearCalculator()" class="button">AC</span>
       <span class="button"></span>

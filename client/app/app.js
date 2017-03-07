@@ -4,6 +4,8 @@ import Components from './components/components';
 import AppComponent from './app.component';
 import 'normalize.css';
 
+// import CalculationService from './services/CalculationService';
+
 angular.module('app', [
     uiRouter,
     Components
@@ -16,3 +18,4 @@ angular.module('app', [
   })
 
   .component('app', AppComponent);
+  // .service('CalculatorService', CalculationService);
