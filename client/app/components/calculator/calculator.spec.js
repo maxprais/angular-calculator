@@ -1,9 +1,9 @@
-import AboutModule from './about'
+import CalculatorModule from './calculator'
 
-describe('About', () => {
+describe('Calculator', () => {
   let $rootScope, $state, $location, $componentController, $compile;
 
-  beforeEach(window.module(AboutModule));
+  beforeEach(window.module(CalculatorModule));
 
   beforeEach(inject(($injector) => {
     $rootScope = $injector.get('$rootScope');
@@ -15,10 +15,10 @@ describe('About', () => {
 
   describe('Module', () => {
     // top-level specs: i.e., routes, injection, naming
-    it('About component should be visible when navigates to /about', () => {
-      $location.url('/about');
+    it('default component should be calculator', () => {
+      $location.url('/');
       $rootScope.$digest();
-      expect($state.current.component).to.eq('about');
+      expect($state.current.component).to.eq('calculator');
     });
   });
 
@@ -26,14 +26,21 @@ describe('About', () => {
     // controller specs
     let controller;
     beforeEach(() => {
-      controller = $componentController('about', {
+      controller = $componentController('calculator', {
         $scope: $rootScope.$new()
       });
     });
 
-    it('has a name property', () => { // erase if removing this.name from the controller
+    it('has a name property', () => {
       expect(controller).to.have.property('name');
     });
+
+    it('should make correct mathematical calculations', () => {
+      let calculationArr = ['1', '+', '3', '*', '25'];
+      let result = eval(calculationArr.join(''));
+      expect(result).to.eq(76);
+    });
+
   });
 
   describe('View', () => {
@@ -42,13 +49,12 @@ describe('About', () => {
 
     beforeEach(() => {
       scope = $rootScope.$new();
-      template = $compile('<about></about>')(scope);
+      template = $compile('<calculator></calculator>')(scope);
       scope.$apply();
     });
 
-    it('has name in template', () => {
-      expect(template.find('h1').html()).to.eq('about');
+    it('has the correct title', () => {
+      expect(template.find('h1').html()).to.eq('Welcome to the Calculator App!');
     });
-
   });
 });

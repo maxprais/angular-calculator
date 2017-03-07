@@ -1,0 +1,29 @@
+<main>
+  <div>
+    <h1>Welcome to the {{ $ctrl.name }} App!</h1>
+  </div>
+  <div class="calculator">
+    <div class="result">{{ $ctrl.currentInputValue }}</div>
+    <div class="buttons">
+      <span ng-click="$ctrl.clearCalculator()" class="button">AC</span>
+      <span class="button"></span>
+      <span class="button"></span>
+      <span ng-click="$ctrl.applyToCalculation('/')" class="button">/</span>
+      <span ng-click="$ctrl.applyToCalculation('7')" class="button">7</span>
+      <span ng-click="$ctrl.applyToCalculation('8')" class="button">8</span>
+      <span ng-click="$ctrl.applyToCalculation('9')" class="button">9</span>
+      <span ng-click="$ctrl.applyToCalculation('*')" class="button">*</span>
+      <span ng-click="$ctrl.applyToCalculation('4')" class="button">4</span>
+      <span ng-click="$ctrl.applyToCalculation('5')" class="button">5</span>
+      <span ng-click="$ctrl.applyToCalculation('6')" class="button">6</span>
+      <span ng-click="$ctrl.applyToCalculation('-')" class="button">-</span>
+      <span ng-click="$ctrl.applyToCalculation('1')" class="button">1</span>
+      <span ng-click="$ctrl.applyToCalculation('2')" class="button">2</span>
+      <span ng-click="$ctrl.applyToCalculation('3')" class="button">3</span>
+      <span ng-click="$ctrl.applyToCalculation('+')" class="button">+</span>
+      <span ng-click="$ctrl.applyToCalculation('0')" class="button zero-btn">0</span>
+      <span class="button"></span>
+      <span ng-click="$ctrl.calculate()" class="button">=</span>
+    </div>
+  </div>
+</main>
