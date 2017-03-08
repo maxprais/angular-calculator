@@ -22,9 +22,9 @@ describe('Calculator', () => {
     });
   });
 
-  describe('Controller', () => {
-    // controller specs
-    let controller;
+  describe('Calculator Controller', () => {
+    let controller, CalculatorController;
+
     beforeEach(() => {
       controller = $componentController('calculator', {
         $scope: $rootScope.$new(),
@@ -32,14 +32,22 @@ describe('Calculator', () => {
       });
     });
 
+    it('controller should exist', function() {
+      expect(controller).not.to.equal(null);
+    });
+
     it('has a name property', () => {
       expect(controller).to.have.property('name');
     });
 
     it('should make correct mathematical calculations', () => {
-      let calculationArr = ['1', '+', '3', '*', '25'];
-      let result = eval(calculationArr.join(''));
-      expect(result).to.eq(76);
+      controller.calculation = ['1', '+', '3', '*', '25'];
+      controller.currentInputValue = 0;
+      let currentCalculatedValue = 0;
+      let resetDisplayOnInput = true;
+      controller.makeCalculation(controller.calculation, currentCalculatedValue, controller.currentInputValue, resetDisplayOnInput);
+
+      expect(controller.currentInputValue).to.eq(76);
     });
 
   });
