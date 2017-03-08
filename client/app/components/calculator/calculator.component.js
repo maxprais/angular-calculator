@@ -7,6 +7,7 @@ let calculatorComponent = {
   bindings: {},
   template,
   controller,
+  selector: 'calculator'
 };
 
 export default calculatorComponent;

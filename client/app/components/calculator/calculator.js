@@ -1,7 +1,7 @@
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import calculatorComponent from './calculator.component';
-
+import CalculatorController from './calculator.controller';
 import CalculationService from '../../services/CalculationService';
 
 let calculatorModule = angular.module('calculator', [
@@ -20,9 +20,11 @@ let calculatorModule = angular.module('calculator', [
     });
 })
 
-.component('calculator', calculatorComponent)
+.controller('CalculatorController', ['CalculationService'], CalculatorController)
 
 .service('CalculationService', CalculationService)
+
+.component('calculator', calculatorComponent)
 
 .name;
 

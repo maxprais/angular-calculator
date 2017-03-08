@@ -27,7 +27,8 @@ describe('Calculator', () => {
     let controller;
     beforeEach(() => {
       controller = $componentController('calculator', {
-        $scope: $rootScope.$new()
+        $scope: $rootScope.$new(),
+        element: angular.element('<calculator></calculator>')
       });
     });
 
