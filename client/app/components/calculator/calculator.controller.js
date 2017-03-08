@@ -6,18 +6,10 @@ class CalculatorController {
     this.currentInputValue = 0;
     let resetDisplayOnInput = true;
     this.applyToCalculation = (value) => {
+      let calculatorData = CalculationService.applyToCalculation(value, resetDisplayOnInput, this.currentInputValue);
+      resetDisplayOnInput = calculatorData.resetDisplayOnInput;
+      this.currentInputValue = calculatorData.currentInputValue;
       calculation.push(value);
-
-      if (value.match(/^[0-9]$/)) {
-        if (resetDisplayOnInput) {
-          this.currentInputValue = value;
-          resetDisplayOnInput = false;
-        } else {
-          this.currentInputValue += value;
-        }
-      } else {
-        resetDisplayOnInput = true;
-      }
     };
 
     this.clearCalculator = () => {

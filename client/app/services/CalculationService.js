@@ -2,6 +2,24 @@ function CalculationService() {
   "ngInject";
 
   return {
+    applyToCalculation(value, resetDisplayOnInput, currentInputValue) {
+      if (value.match(/^[0-9]$/)) {
+        if (resetDisplayOnInput) {
+          currentInputValue = value;
+          resetDisplayOnInput = false;
+        } else {
+          currentInputValue += value;
+        }
+      } else {
+        resetDisplayOnInput = true;
+      }
+
+      return {
+        resetDisplayOnInput: resetDisplayOnInput,
+        currentInputValue: currentInputValue
+      }
+    },
+
     calculate(calculation, currentCalculatedValue, currentInputValue, resetDisplayOnInput) {
       if (calculation.length === 0) {
         return;
